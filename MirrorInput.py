@@ -85,33 +85,35 @@ ACHT=[QUERSTRICH,SEITENSTRICHDOPPELT,SEITENSTRICHDOPPELT,QUERSTRICH,SEITENSTRICH
 NEUN=[QUERSTRICH,SEITENSTRICHDOPPELT,SEITENSTRICHDOPPELT,QUERSTRICH,SEITENSTRICHRECHTS,SEITENSTRICHRECHTS,QUERSTRICH]
 NULL=[QUERSTRICH,SEITENSTRICHDOPPELT,SEITENSTRICHDOPPELT,LEER,SEITENSTRICHDOPPELT,SEITENSTRICHDOPPELT,QUERSTRICH]
 
+
 # Nun müssen wir unsere Ausgabe generieren. Bei dieser besteht die erste Zeile - der erste String aus dem Array - aus den zusammengesetzten ersten Zeilen der eigentlichen Zahlen.
+
+# Nachtrag: Da Python erst mit 3.10 einen 'switch : case' bekam und diese Version von den meisten Online-Compilern nicht unterstüzt wird, habe ich mich für eine if-elif Lösung entschieden. 
 
 def generateOutput(userInput):
     output = []
     for i in range(LENGTH):
         output.append('')
         for num in userInput:
-            match num:
-                case '1':
+                if num == '1':
                     output[i] += (EINS[i])+SPACE
-                case '2':
+                elif num == '2':
                     output[i] += (ZWEI[i])+SPACE
-                case '3':
+                elif num == '3':
                     output[i] += (DREI[i])+SPACE
-                case '4':
+                elif num == '4':
                     output[i] += (VIER[i])+SPACE
-                case '5':
+                elif num ==  '5':
                     output[i] += (FÜNF[i])+SPACE
-                case '6':
+                elif num ==  '6':
                     output[i] += (SECHS[i])+SPACE
-                case '7':
+                elif num == '7':
                     output[i] += (SIEBEN[i])+SPACE
-                case '8':
+                elif num ==  '8':
                     output[i] += (ACHT[i])+SPACE
-                case '9':
+                elif num ==  '9':
                     output[i] += (NEUN[i])+SPACE
-                case '0':
+                elif num ==  '0':
                     output[i] += (NULL[i])+SPACE
     return output
 
@@ -149,7 +151,7 @@ def mirrorOutput(output, userInput):
     return output
 
 def mirrorX(output):
-    output = output[::-1]
+    output = output[::-1] 
     return output
 
 def mirrorY(output):
